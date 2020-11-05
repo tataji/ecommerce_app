@@ -1,3 +1,4 @@
+import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 class RoundedPasswordInputField extends StatelessWidget {
   final String hintText;
@@ -18,7 +19,7 @@ class RoundedPasswordInputField extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
       width: size.width * 0.8,
       decoration: BoxDecoration(
-        color: Colors.grey,
+        color: greyColor,
         borderRadius: BorderRadius.circular(10),
       ),
       child: TextField(obscureText: true,
