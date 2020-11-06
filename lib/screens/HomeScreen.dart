@@ -36,24 +36,26 @@ class HomeScreenState extends State<HomeScreen> {
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: CarouselSlider(
-                  options: CarouselOptions(height: 150.0),
-                  items: [1,2,3,4,5].map((i) {
-                    return Builder(
-                      builder: (BuildContext context) {
-                        return Container(
-                            width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            decoration: BoxDecoration(shape: BoxShape.rectangle,
-                                borderRadius: BorderRadius.all(Radius.circular(20)),
-                                color: Colors.black12),
-                            child: Center(child: Text('Image $i', style: TextStyle(fontSize: 16.0),))
-                        );
-                      },
-                    );
-                  }).toList(),
+              Container(width: MediaQuery.of(context).size.width ,
+                child: Padding(
+                  padding: const EdgeInsets.only(top:10.0,bottom: 10),
+                  child: CarouselSlider(
+                    options: CarouselOptions(height: 150.0),
+                    items: [1,2,3,4,5].map((i) {
+                      return Builder(
+                        builder: (BuildContext context) {
+                          return Container(
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: BoxDecoration(shape: BoxShape.rectangle,
+                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                  color: Colors.black12),
+                              child: Center(child: Text('Image $i', style: TextStyle(fontSize: 16.0),))
+                          );
+                        },
+                      );
+                    }).toList(),
+                  ),
                 ),
               ),
               Container(

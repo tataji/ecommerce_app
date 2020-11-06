@@ -1,3 +1,4 @@
+import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
@@ -9,7 +10,7 @@ class RoundedButton extends StatelessWidget {
     this.text,
     this.press,
     this.color,
-    this.textColor = Colors.white,
+    this.textColor = whiteColor,
   }) : super(key: key);
 
   @override

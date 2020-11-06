@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,7 @@ class _CustomDialogState extends State<CustomDialog> {
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,
-              color: Colors.white,
+              color: whiteColor,
               borderRadius: BorderRadius.circular(10),
               boxShadow: [
                 BoxShadow(color: Colors.black,offset: Offset(0,10),
@@ -55,12 +56,11 @@ class _CustomDialogState extends State<CustomDialog> {
               ),
               RoundedButton(
                 text: "Submit",
-                press: () {},color: Colors.green,
+                press: () {},color: appbarGreenColor,
               ),
             ],
           ),
         ),
-
       ],
     );
   }

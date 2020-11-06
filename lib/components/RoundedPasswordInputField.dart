@@ -24,17 +24,17 @@ class RoundedPasswordInputField extends StatelessWidget {
       ),
       child: TextField(obscureText: true,
         onChanged: onChanged,
-        cursorColor: Colors.white,
+        cursorColor: whiteColor,
         decoration: InputDecoration(
         icon: Icon(
           Icons.lock,
-          color: Colors.white,
+          color: whiteColor,
         ),
         suffixIcon: Icon(
           Icons.visibility,
-          color: Colors.white,
+          color: whiteColor,
         ),
-          hintText: hintText,hintStyle: TextStyle(color: Colors.white),
+          hintText: hintText,hintStyle: TextStyle(color: whiteColor),
           border: InputBorder.none,
         ),
       ),

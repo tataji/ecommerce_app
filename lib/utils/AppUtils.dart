@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import 'constants.dart';
+
 class AppUtils {
   static AppBar buildAppBar() {
     return AppBar(
@@ -19,7 +21,7 @@ class AppUtils {
                Align(alignment: Alignment.topRight,
                  child: Padding(
                    padding:  EdgeInsets.only(left:15.0),
-                   child: Text("2",style: TextStyle(color: Colors.white,fontSize: 12,fontWeight: FontWeight.bold),),
+                   child: Text("2",style: TextStyle(color: whiteColor,fontSize: 12,fontWeight: FontWeight.bold),),
                  ),
                ),
                IconButton(

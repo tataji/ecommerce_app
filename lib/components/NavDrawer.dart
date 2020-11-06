@@ -1,3 +1,4 @@
+import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class NavDrawer extends StatelessWidget {
@@ -12,17 +13,17 @@ class NavDrawer extends StatelessWidget {
               children: [
               Text(
                 'Dinesh',
-                style: TextStyle(color: Colors.white, fontSize: 25),
+                style: TextStyle(color: whiteColor, fontSize: 25),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(width: 80,height: 80,child: Icon(Icons.account_circle),
-                decoration: BoxDecoration(shape:BoxShape.circle,color: Colors.white, ),
+                decoration: BoxDecoration(shape:BoxShape.circle,color: whiteColor, ),
                 ),
               )
             ],),
             decoration: BoxDecoration(
-                color: Colors.green,
+                color: appbarGreenColor,
                 image: DecorationImage(
                     fit: BoxFit.fill,
                     image: AssetImage('assets/images/cover.jpg'))),

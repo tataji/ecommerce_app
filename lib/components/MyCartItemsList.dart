@@ -1,5 +1,6 @@
 import 'package:e_commerce/components/MyCartListItemCard.dart';
 import 'package:e_commerce/models/ItemsCategeory.dart';
+import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class MyCartItemList extends StatefulWidget {
@@ -45,15 +46,15 @@ class MyCartItemListState extends State<MyCartItemList> {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: 100,color: Colors.white,
+                height: 100,color: whiteColor,
                 child:Padding(
                   padding: const EdgeInsets.only(left:15.0,right: 15),
                   child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                     Text("Total amount"),
                       Container(height: 50,width: 200,
-                        child: RaisedButton(disabledColor: Colors.green,
-                        child: Text("Place Order",style: TextStyle(color: Colors.white),),),
+                        child: RaisedButton(disabledColor: appbarGreenColor,
+                        child: Text("Place Order",style: TextStyle(color: whiteColor),),),
                       ),
                   ],),
                 ),)

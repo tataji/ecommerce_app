@@ -1,5 +1,6 @@
 import 'package:e_commerce/components/CustomDropDown.dart';
 import 'package:e_commerce/models/Product.dart';
+import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ItemCard extends StatelessWidget {
@@ -35,7 +36,7 @@ class ItemCard extends StatelessWidget {
                 Align(alignment: Alignment.topLeft,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Icon(Icons.favorite,color: Colors.white,),
+                    child: Icon(Icons.favorite,color: whiteColor,),
                   ),
                 ),
                 Align(alignment: Alignment.topRight,

@@ -1,3 +1,4 @@
+import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -83,7 +84,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
         ),
-        child:Icon(Icons.add_box,color: Colors.white,)
+        child:Icon(Icons.add_box,color: whiteColor,)
       ),
     );
   }
@@ -110,7 +111,7 @@ class DropDown extends StatelessWidget {
           elevation: 20,
           child: Container(width: 100,
             height: 40,
-            decoration: BoxDecoration(color: Colors.white,
+            decoration: BoxDecoration(color: whiteColor,
               borderRadius: BorderRadius.circular(8),
             ),
             child:Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
