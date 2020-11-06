@@ -1,9 +1,8 @@
 import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/utils/AppUtils.dart';
-import 'package:e_commerce/HomeScreen.dart';
+import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/screens/HomeScreen.dart';
 import 'package:e_commerce/components/MyCartItemsList.dart';
 import 'package:e_commerce/screens/LoginScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
-import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/utils/UtilsColors.dart';
 /// Flutter code sample for BottomNavigationBar
 import 'package:flutter/material.dart';
 import 'components/NavDrawer.dart';
@@ -83,7 +82,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: UtilsColors.appBaseColor,
+        selectedItemColor: appbarGreenColor,
         onTap: _onItemTapped,
       ),
     );

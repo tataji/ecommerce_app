@@ -1,5 +1,5 @@
 import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/utils/AppUtils.dart';
-import 'package:e_commerce/components/ProductDetailsScreen.dart';
+import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/screens/ProductDetailsScreen.dart';
 import 'package:e_commerce/components/item_card.dart';
 import 'package:e_commerce/models/Product.dart';
 import 'package:e_commerce/utils/constants.dart';

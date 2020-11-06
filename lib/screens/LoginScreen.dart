@@ -3,6 +3,7 @@ import 'package:e_commerce/components/RoundedButton.dart';
 import 'package:e_commerce/components/RoundedInputField.dart';
 import 'package:e_commerce/components/RoundedPasswordInputField.dart';
 import 'package:e_commerce/screens/SignUpScreen.dart';
+import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,7 @@ class LoginScreenState extends State<LoginScreen> {
                 ),
                 RoundedButton(
                   text: "LOGIN",
-                  press: () {},color: Colors.green,
+                  press: () {},color: appbarGreenColor,
                 ),
                 SizedBox(height:10),
                 Row(crossAxisAlignment: CrossAxisAlignment.center,

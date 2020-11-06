@@ -1,9 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/components/RoundListItem.dart';
+import 'package:e_commerce/components/categeory_cart.dart';
+import 'package:e_commerce/models/ItemsCategeory.dart';
 import 'package:e_commerce/shop/SubCategeoryScreen.dart';
 import 'package:flutter/material.dart';
-import 'components/categeory_cart.dart';
-import 'models/ItemsCategeory.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -29,7 +29,7 @@ class HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding:  EdgeInsets.only(left:20.0,top: 10),
                 child: Text(
-                  "Categeory",
+                  "Category",
                   style: Theme.of(context)
                       .textTheme
                       .headline5
