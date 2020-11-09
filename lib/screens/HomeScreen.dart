@@ -2,7 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/components/RoundListItem.dart';
 import 'package:e_commerce/components/categeory_cart.dart';
 import 'package:e_commerce/models/ItemsCategeory.dart';
-import 'package:e_commerce/shop/SubCategeoryScreen.dart';
+import 'package:e_commerce/screens/shop/SubCategeoryScreen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

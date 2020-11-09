@@ -32,6 +32,8 @@ class _CustomDialogState extends State<CustomDialog> {
     return Stack(
       children: <Widget>[
         Container(
+          width: 300,
+          height: 250,
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
               shape: BoxShape.rectangle,

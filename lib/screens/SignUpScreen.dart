@@ -20,37 +20,37 @@ class SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      appBar: AppBar(title: Text("SignUp"),),
       body: SingleChildScrollView(
-        child: Center(
-          child: Container(
-              width: MediaQuery.of(context).size.width,
-              child: Column(crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment:MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Welcome",
-                    style: Theme.of(context).textTheme.headline5.copyWith(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height:10),
-                  RoundedInputField(
-                    hintText: "Name",
-                    onChanged: (value) {},
-                  ),
-                  RoundedInputField(
-                    hintText: "Your Email/Mobile",
-                    onChanged: (value) {},
-                  ),
-                  RoundedPasswordInputField(
-                    hintText: "Password",
-                    onChanged: (value) {},
-                  ),
-                  RoundedButton(
-                    text: "Register",
-                    press: () {},color:appbarGreenColor,
-                  ),
-                ],
-              )),
-        ),
+        child: Container(
+            height:  MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment:MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Welcome",
+                  style: Theme.of(context).textTheme.headline5.copyWith(fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height:10),
+                RoundedInputField(
+                  hintText: "Name",
+                  onChanged: (value) {},
+                ),
+                RoundedInputField(
+                  hintText: "Your Email/Mobile",
+                  onChanged: (value) {},
+                ),
+                RoundedPasswordInputField(
+                  hintText: "Password",
+                  onChanged: (value) {},
+                ),
+                RoundedButton(
+                  text: "Register",
+                  press: () {},color:appbarGreenColor,
+                ),
+              ],
+            )),
       ),
     );
   }
