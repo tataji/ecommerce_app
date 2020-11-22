@@ -1,5 +1,6 @@
 import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/utils/AppUtils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:e_commerce/components/CommonButton.dart';
 import 'package:e_commerce/components/item_card.dart';
 import 'package:e_commerce/models/Product.dart';
 import 'package:e_commerce/utils/constants.dart';
@@ -22,14 +23,13 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppUtils.buildAppBar(),
+      appBar: AppUtils.buildAppBar(context),
       body: GestureDetector(
         // onTap: press,
         child: Container(
-          height: MediaQuery.of(context).size.height-250,
+          height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Column(mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(width: MediaQuery.of(context).size.width ,
                 child: Padding(
@@ -63,20 +63,23 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
                     Text('Price:',style: TextStyle(fontSize: 12),),
                   ],),
               ),
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: 100,color: whiteColor,
-                child:Padding(
-                  padding: const EdgeInsets.only(left:15.0,right: 15),
-                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("Total amount"),
-                      Container(height: 50,width: 200,
-                        child: RaisedButton(disabledColor: appbarGreenColor,
-                          child: Text("Place Order",style: TextStyle(color: whiteColor),),),
-                      ),
-                    ],),
-                ),)
+              Expanded(
+                child: Align(alignment: Alignment.bottomCenter,
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 100,
+                    color: whiteColor,
+                    child:Padding(
+                      padding: const EdgeInsets.only(left:15.0,right: 15),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Total amount:"),
+                           CommonButton(color: appbarGreenColor,press: (){},
+                             text: "Place Order",textColor: whiteColor,),
+                        ],),
+                    ),),
+                ),
+              )
             ],
           ),
         ),

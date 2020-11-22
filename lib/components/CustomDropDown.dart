@@ -1,3 +1,4 @@
+import 'package:e_commerce/provider_model/MyCartViewModel.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -5,8 +6,12 @@ import 'package:flutter/material.dart';
 
 class CustomDropdown extends StatefulWidget {
   final String text;
-
-  const CustomDropdown({Key key, @required this.text}) : super(key: key);
+  MyCartViewModel myCartViewModel;
+  Function minusIconPress;
+  Function plusIconPress;
+  int count;
+  CustomDropdown({Key key, @required this.text,this.myCartViewModel,
+    this.minusIconPress,this.plusIconPress,this.count}) : super(key: key);
 
   @override
   _CustomDropdownState createState() => _CustomDropdownState();
@@ -17,8 +22,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
   double height, width, xPosition, yPosition;
   bool isDropdownOpened = false;
   OverlayEntry floatingDropdown;
-
-  @override
+   @override
   void initState() {
     actionKey = LabeledGlobalKey(widget.text);
     super.initState();
@@ -31,10 +35,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
     Offset offset = renderBox.localToGlobal(Offset.zero);
     xPosition = offset.dx;
     yPosition = offset.dy;
-    print(height);
-    print(width);
-    print(xPosition);
-    print(yPosition);
+    print(height);print(width);print(xPosition);print(yPosition);
   }
 
   OverlayEntry _createFloatingDropdown() {
@@ -50,14 +51,33 @@ class _CustomDropdownState extends State<CustomDropdown> {
         child: Stack(
           children: [
             Positioned(
-              right: xPosition + 40,
+              right: xPosition + 55,
               width: 100,
               top: yPosition,
               height: 40,
-              child: DropDown(
-                itemHeight: height,
+              child: Column(
+                      children: <Widget>[
+                        Material(elevation: 20,
+                          child: Container(width: 100,
+                              height: 40,
+                              decoration: BoxDecoration(color: whiteColor,
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child:Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                crossAxisAlignment:CrossAxisAlignment.center,
+                                children: [
+                                  GestureDetector(onTap:widget.minusIconPress,
+                                      child: Icon(Icons.remove,color: Colors.black,)),
+                                  Text('${widget.count}'),
+                                  GestureDetector(onTap: widget.plusIconPress,
+                                      child: Icon(Icons.add_box,color: Colors.black,))
+                                ],)
+                          ),
+                        ),
+                      ],
+                    )
               ),
-            ),
+
           ],
         ),
       );
@@ -84,7 +104,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
         ),
-        child:Icon(Icons.add_box,color: whiteColor,)
+        child: Icon(Icons.add_box,color: whiteColor,)
       ),
     );
   }
@@ -98,32 +118,3 @@ class _CustomDropdownState extends State<CustomDropdown> {
   }
 }
 
-
-class DropDown extends StatelessWidget {
-  final double itemHeight;
-  const DropDown({Key key, this.itemHeight}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    print("drop down opened");
-    return Column(
-      children: <Widget>[
-        Material(
-          elevation: 20,
-          child: Container(width: 100,
-            height: 40,
-            decoration: BoxDecoration(color: whiteColor,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child:Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment:CrossAxisAlignment.center,
-              children: [
-              Icon(Icons.remove,color: Colors.black,),
-              Text("1"),
-              Icon(Icons.add_box,color: Colors.black,)
-            ],)
-          ),
-        ),
-      ],
-    );
-  }
-}

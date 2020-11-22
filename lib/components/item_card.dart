@@ -1,11 +1,14 @@
 import 'package:e_commerce/components/CustomDropDown.dart';
 import 'package:e_commerce/models/Product.dart';
+import 'package:e_commerce/provider_model/MyCartViewModel.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class ItemCard extends StatelessWidget {
   final Product product;
   final Function press;
+
   const ItemCard({
     Key key,
     this.product,
@@ -28,26 +31,46 @@ class ItemCard extends StatelessWidget {
                     color: product.color,
                     borderRadius: BorderRadius.circular(16),
                   ),
-//              child: Hero(
-//                tag: "${product.id}",
-//                child: Image.asset(product.image),
-//              ),
                 ),
-                Align(alignment: Alignment.topLeft,
+                Align(
+                  alignment: Alignment.topLeft,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Icon(Icons.favorite,color: whiteColor,),
+                    child: Icon(
+                      Icons.favorite,
+                      color: whiteColor,
+                    ),
                   ),
                 ),
-                Align(alignment: Alignment.topRight,
+                Align(
+                  alignment: Alignment.topRight,
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Row(crossAxisAlignment: CrossAxisAlignment.end,mainAxisAlignment: MainAxisAlignment.end,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Container(width: 20,height: 20,
-                            child: CustomDropdown(text: "text")),
-                    //  Icon(Icons.add_box,color: Colors.white,)
-                      ],),
+                        Consumer<MyCartViewModel>(
+                          builder: (context, myCartViewModel, child) =>
+                              Container(
+                                  width: 20,
+                                  height: 100,
+                                  child: Column(
+                                  children: [
+                                    CustomDropdown(text: "text",
+                                      count: myCartViewModel.carList.length,
+                                      minusIconPress: (){
+                                        myCartViewModel.addToCart(1);
+                                      },plusIconPress: (){
+                                        myCartViewModel.addToCart(1);
+                                      },
+                                      myCartViewModel: myCartViewModel,),
+                                    Text('${myCartViewModel.carList.length}'),
+                                  ],)),
+
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ],

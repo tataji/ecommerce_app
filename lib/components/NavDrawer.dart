@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/ProfileScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -24,19 +25,23 @@ class NavDrawer extends StatelessWidget {
             ],),
             decoration: BoxDecoration(
                 color: appbarGreenColor,
-                image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/cover.jpg'))),
-          ),
+                  // image: DecorationImage(
+                  // fit: BoxFit.fill,
+                  // image: AssetImage('assets/images/cover.jpg'))
+            ),),
           ListTile(
             leading: Icon(Icons.input),
             title: Text('Welcome'),
             onTap: () => {},
           ),
-          ListTile(
-            leading: Icon(Icons.verified_user),
-            title: Text('Profile'),
-            onTap: () => {Navigator.of(context).pop()},
+          GestureDetector(onTap: (){
+            print("on tap dected");
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+          },
+            child: ListTile(
+              leading: Icon(Icons.verified_user),
+              title: Text('Profile'),
+            ),
           ),
           ListTile(
             leading: Icon(Icons.settings),
@@ -49,7 +54,7 @@ class NavDrawer extends StatelessWidget {
             onTap: () => {Navigator.of(context).pop()},
           ),
           ListTile(
-            leading: Icon(Icons.exit_to_app),
+            leading: Icon(Icons.logout),
             title: Text('Logout'),
             onTap: () => {Navigator.of(context).pop()},
           ),

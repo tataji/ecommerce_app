@@ -1,10 +1,11 @@
+import 'package:e_commerce/screens/MyCartItemsList.dart';
+import 'package:e_commerce/screens/SearchScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'constants.dart';
 
 class AppUtils {
-  static AppBar buildAppBar() {
+   static AppBar buildAppBar(BuildContext context) {
     return AppBar(
       elevation: 0,
       actions: <Widget>[
@@ -13,7 +14,10 @@ class AppUtils {
             "assets/icons/search.svg",
             // By default our  icon color is white
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => SearchScreen()));
+          },
         ),
         Container(
            child: Stack(
@@ -29,7 +33,10 @@ class AppUtils {
                    "assets/icons/cart.svg",
                    // By default our  icon color is white
                  ),
-                 onPressed: () {},
+                 onPressed: () {
+                   Navigator.of(context).push(MaterialPageRoute(
+                       builder: (BuildContext context) => MyCartItemList()));
+                 },
                )
              ],
            ),

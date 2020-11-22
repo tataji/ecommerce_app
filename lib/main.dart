@@ -13,15 +13,13 @@ void main() => runApp(MyApp());
 
 /// This is the main application widget.
 class MyApp extends StatelessWidget {
-  static const String _title = 'Flutter Code Sample';
-
   @override
   Widget build(BuildContext context) {
    // SizeConfig.init(context);
     return MaterialApp(
       theme: ThemeData(accentColor: appbarGreenColor,
         appBarTheme: AppBarTheme(color: appbarGreenColor)),
-      title: _title,debugShowCheckedModeBanner: false,
+      title: "",debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }
@@ -65,7 +63,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavDrawer(),
-      appBar: AppUtils.buildAppBar(),
+      appBar: AppUtils.buildAppBar(context),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
