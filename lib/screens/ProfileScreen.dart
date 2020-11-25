@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/SavedAddressScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -57,7 +58,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                 ListTile(
                   leading: Icon(Icons.location_on),
                   title: Text('Saved Address'),
-                  onTap: () => {Navigator.of(context).pop()},
+                  onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (context)=>SavedAddressScreen()))},
                 ),
                 ListTile(
                   leading: Icon(Icons.star_border),
