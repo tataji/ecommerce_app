@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/LoginScreen.dart';
 import 'package:e_commerce/screens/ProfileScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
@@ -56,7 +57,12 @@ class NavDrawer extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('Logout'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {
+              //Navigator.of(context).pop()
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+                  builder: (BuildContext context) => LoginScreen()),
+                      (Route<dynamic> route) => false)
+            },
           ),
         ],
       ),

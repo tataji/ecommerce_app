@@ -16,11 +16,10 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    Timer(
-        Duration(seconds: 3),
-            () =>
-            Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (BuildContext context) => LoginScreen())));
+    Timer(Duration(seconds: 3), () =>
+            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+                builder: (BuildContext context) => LoginScreen()),
+                    (Route<dynamic> route) => false));
     return Stack(
      children: [
        Container(color: Colors.greenAccent,

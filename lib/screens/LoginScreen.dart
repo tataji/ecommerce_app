@@ -3,7 +3,6 @@ import 'package:e_commerce/components/RoundedButton.dart';
 import 'package:e_commerce/components/RoundedInputField.dart';
 import 'package:e_commerce/components/RoundedPasswordInputField.dart';
 import 'package:e_commerce/screens/SignUpScreen.dart';
-import 'package:e_commerce/screens/SliversScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -49,9 +48,9 @@ class LoginScreenState extends State<LoginScreen> {
                   RoundedButton(
                     text: "LOGIN",
                     press: () {
-                      Navigator.push(context,
+                      Navigator.pushAndRemoveUntil(context,
                           MaterialPageRoute(builder: (context) =>
-                              MyStatefulWidget(),));
+                              MyStatefulWidget()),(Route<dynamic> route) => false);
                     },color: appbarGreenColor,
                   ),
                   SizedBox(height:10),
