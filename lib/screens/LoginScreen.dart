@@ -2,6 +2,7 @@ import 'package:e_commerce/components/CustomDialog.dart';
 import 'package:e_commerce/components/RoundedButton.dart';
 import 'package:e_commerce/components/RoundedInputField.dart';
 import 'package:e_commerce/components/RoundedPasswordInputField.dart';
+import 'package:e_commerce/local_storage/SharedPreference.dart';
 import 'package:e_commerce/screens/SignUpScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,8 +27,8 @@ class LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-            height:MediaQuery.of(context).size.height ,
-            width: MediaQuery.of(context).size.width ,
+            height:MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
             child: Center(
               child: Column(crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment:MainAxisAlignment.center,
@@ -48,9 +49,10 @@ class LoginScreenState extends State<LoginScreen> {
                   RoundedButton(
                     text: "LOGIN",
                     press: () {
+                      SharedPreferencesWrapper.saveLoginDetails();
                       Navigator.pushAndRemoveUntil(context,
                           MaterialPageRoute(builder: (context) =>
-                              MyStatefulWidget()),(Route<dynamic> route) => false);
+                              BottomMenuHomeScreen()),(Route<dynamic> route) => false);
                     },color: appbarGreenColor,
                   ),
                   SizedBox(height:10),

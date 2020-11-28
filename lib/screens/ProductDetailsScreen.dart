@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 class ProductDetailsScreen extends StatefulWidget {
   Product product;
   ProductDetailsScreen({Key key,this.product}) : super(key: key);
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -19,10 +18,11 @@ class ProductDetailsScreen extends StatefulWidget {
 }
 
 class ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return Scaffold(
+    return Scaffold(key: scaffoldKey,
       appBar: AppUtils.buildAppBar(context),
       body: GestureDetector(
         // onTap: press,
@@ -73,9 +73,19 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       padding: const EdgeInsets.only(left:15.0,right: 15),
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Total amount:"),
-                           CommonButton(color: appbarGreenColor,press: (){},
-                             text: "Place Order",textColor: whiteColor,),
+                          Text("wish list"),
+                           CommonButton(color: appbarGreenColor,press: (){
+                             print("bootmload");
+                             var sheetController = scaffoldKey.currentState
+                                 .showBottomSheet((context) => Container(
+                               height: 250,color: Colors.white,
+                               child: Text("Select Size"),
+                             ));
+                             sheetController.closed.then((value) {
+                               print("closed");
+                             });
+                           },
+                             text: "Add Bag",textColor: whiteColor,),
                         ],),
                     ),),
                 ),

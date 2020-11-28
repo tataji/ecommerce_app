@@ -3,13 +3,18 @@ import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_comm
 import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/screens/MyCartItemsList.dart';
 import 'package:e_commerce/screens/LoginScreen.dart';
 import 'package:e_commerce/screens/SplashScreen.dart';
-import 'package:e_commerce/utils/SizeConfig.dart';
 import 'package:e_commerce/utils/constants.dart';
 /// Flutter code sample for BottomNavigationBar
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'components/NavDrawer.dart';
 
-void main() => runApp(MyApp());
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations(
+  [DeviceOrientation.portraitUp]);
+  runApp(MyApp());
+}
 
 /// This is the main application widget.
 class MyApp extends StatelessWidget {
@@ -26,16 +31,16 @@ class MyApp extends StatelessWidget {
 }
 
 /// This is the stateful widget that the main application instantiates.
-class MyStatefulWidget extends StatefulWidget {
+class BottomMenuHomeScreen extends StatefulWidget {
 
-  MyStatefulWidget({Key key}) : super(key: key);
+  BottomMenuHomeScreen({Key key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _BottomMenuHomeScreenState createState() => _BottomMenuHomeScreenState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
   int _selectedIndex = 0;
   static  TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color: Colors.black);
