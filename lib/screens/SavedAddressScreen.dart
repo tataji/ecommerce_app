@@ -1,4 +1,5 @@
 import 'package:e_commerce/screens/CreateOrEditAddress.dart';
+import 'package:e_commerce/utils/SizeConfig.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -33,7 +34,10 @@ class SavedAddressScreenState extends State<SavedAddressScreen> {
                   child: GestureDetector(onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateOrEditAddressScreen()));
                   },
-                      child: Text("+ Add address")),
+                      child: Container(width: SizeConfig.screenWidth/3,height: 50,
+                          decoration: BoxDecoration(border: Border.all(color:appbarGreenColor),
+                          borderRadius: BorderRadius.circular(16)),
+                          child: Center(child: Text("+ Add address")))),
                 ),
                 Padding(
                   padding: EdgeInsets.all(defaultPadding),
@@ -49,7 +53,7 @@ class SavedAddressScreenState extends State<SavedAddressScreen> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Name and \n address \n pincode"),
+                          Text("Name  \nAddress \nPin code"),
                           VerticalDivider(width: 400,),
                           Expanded(
                             child: Align(alignment: Alignment.bottomCenter,
@@ -58,6 +62,36 @@ class SavedAddressScreenState extends State<SavedAddressScreen> {
                                 Text("Edit"),
                                 Text("Remove")
                               ],),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.all(defaultPadding),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height / 8,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),boxShadow: [
+                      BoxShadow(color: appbarGreenColor, spreadRadius: 3)
+                    ],
+                        color: whiteColor),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Name  \nAddress \nPin code"),
+                          VerticalDivider(width: 400,),
+                          Expanded(
+                            child: Align(alignment: Alignment.bottomCenter,
+                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                children: [
+                                  Text("Edit"),
+                                  Text("Remove")
+                                ],),
                             ),
                           )
                         ],

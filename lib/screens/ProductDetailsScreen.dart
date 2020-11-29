@@ -73,12 +73,14 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
                       padding: const EdgeInsets.only(left:15.0,right: 15),
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("wish list"),
+                          Container(width: 150,height: 50,
+                          decoration: BoxDecoration(border: Border.all(color:appbarGreenColor),
+                              borderRadius: BorderRadius.circular(16)),
+                          child: Center(child: Text("+Wish list"))),
                            CommonButton(color: appbarGreenColor,press: (){
-                             print("bootmload");
                              var sheetController = scaffoldKey.currentState
-                                 .showBottomSheet((context) => Container(
-                               height: 250,color: Colors.white,
+                                 .showBottomSheet((context) => Container(width: MediaQuery.of(context).size.width,
+                               height: 250,color: Colors.blueGrey,
                                child: Text("Select Size"),
                              ));
                              sheetController.closed.then((value) {

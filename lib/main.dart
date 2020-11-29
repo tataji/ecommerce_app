@@ -3,6 +3,7 @@ import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_comm
 import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/screens/MyCartItemsList.dart';
 import 'package:e_commerce/screens/LoginScreen.dart';
 import 'package:e_commerce/screens/SplashScreen.dart';
+import 'package:e_commerce/utils/SizeConfig.dart';
 import 'package:e_commerce/utils/constants.dart';
 /// Flutter code sample for BottomNavigationBar
 import 'package:flutter/material.dart';
@@ -20,7 +21,6 @@ void main() async{
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-   // SizeConfig.init(context);
     return MaterialApp(
       theme: ThemeData(accentColor: appbarGreenColor,
         appBarTheme: AppBarTheme(color: appbarGreenColor)),
@@ -32,8 +32,8 @@ class MyApp extends StatelessWidget {
 
 /// This is the stateful widget that the main application instantiates.
 class BottomMenuHomeScreen extends StatefulWidget {
-
-  BottomMenuHomeScreen({Key key}) : super(key: key);
+  int index;
+  BottomMenuHomeScreen({Key key,this.index}) : super(key: key);
 
   @override
   _BottomMenuHomeScreenState createState() => _BottomMenuHomeScreenState();
@@ -50,13 +50,19 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
       'Explore UI',
       style: optionStyle,
     ),
-    LoginScreen(),
+    Text(
+      'Savings UI',
+      style: optionStyle,
+    ),
     MyCartItemList(),
   ];
    @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    if(widget.index!=null){
+        _selectedIndex = widget.index;
+    }
   }
   void _onItemTapped(int index) {
     setState(() {

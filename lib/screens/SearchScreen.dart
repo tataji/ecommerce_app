@@ -4,6 +4,7 @@ import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
+
   SearchScreen({Key key}) : super(key: key);
 
   @override
@@ -18,7 +19,13 @@ class SearchScreenState extends State<SearchScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Material(
-      child: Scaffold(appBar: AppBar(
+      child: Scaffold(appBar: AppBar(title: Container(
+          child: TextField(style: TextStyle(color: whiteColor),
+            decoration: InputDecoration(focusColor: whiteColor,border: InputBorder.none,
+              hintText: "Search here",hintStyle: TextStyle(color:whiteColor),
+              //focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+              contentPadding: EdgeInsets.all(15),),
+            cursorColor: whiteColor,)),
         backgroundColor: appbarGreenColor,),
         body: SingleChildScrollView(
           child: Container(
