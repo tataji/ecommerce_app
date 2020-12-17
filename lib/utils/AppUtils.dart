@@ -47,7 +47,7 @@ class AppUtils {
                      shape: BoxShape.circle,
                      // borderRadius: BorderRadius.circular(16),
                    ),
-                       child: Center(child: Text("22",style: TextStyle(color: whiteColor,fontSize: 12,fontWeight: FontWeight.bold),))),
+                       child: Center(child: Text("2",style: TextStyle(color: whiteColor,fontSize: 12,fontWeight: FontWeight.bold),))),
                  ),
                ),
              ],

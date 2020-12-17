@@ -1,8 +1,7 @@
-import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/utils/AppUtils.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:e_commerce/components/CommonButton.dart';
-import 'package:e_commerce/components/item_card.dart';
 import 'package:e_commerce/models/Product.dart';
+import 'package:e_commerce/utils/AppUtils.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +54,8 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
               ),
               Padding(
                 padding:  EdgeInsets.all(defaultPadding),
-                child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text('Product name',style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold)),
@@ -80,8 +80,53 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
                            CommonButton(color: appbarGreenColor,press: (){
                              var sheetController = scaffoldKey.currentState
                                  .showBottomSheet((context) => Container(width: MediaQuery.of(context).size.width,
-                               height: 250,color: Colors.blueGrey,
-                               child: Text("Select Size"),
+                               height: MediaQuery.of(context).size.height/4,color:  greyColor,
+                               child: Column(mainAxisAlignment: MainAxisAlignment.start,
+                                 crossAxisAlignment: CrossAxisAlignment.start,
+                                 children: [
+                                 Padding(padding:  EdgeInsets.all(8.0),
+                                     child: Text("Select Size")),
+                                 Padding(
+                                   padding: const EdgeInsets.all(8.0),
+                                   child: Row(
+                                     children: [
+                                       SizedBox(width: 10,),
+                                       Container(
+                                         padding: EdgeInsets.all(10),width: 40,height: 40,
+                                         decoration: BoxDecoration(color: Colors.grey,
+                                           shape: BoxShape.circle,
+                                           // borderRadius: BorderRadius.circular(16),
+                                         ),
+                                       ),
+                                       SizedBox(width: 10,),
+                                       Container(
+                                         padding: EdgeInsets.all(10),width: 40,height: 40,
+                                         decoration: BoxDecoration(color: Colors.grey,
+                                           shape: BoxShape.circle,
+                                           // borderRadius: BorderRadius.circular(16),
+                                         ),
+                                       ),
+                                       SizedBox(width: 10,),
+                                       Container(
+                                         padding: EdgeInsets.all(10),width: 40,height: 40,
+                                         decoration: BoxDecoration(color: Colors.grey,
+                                           shape: BoxShape.circle,
+                                           // borderRadius: BorderRadius.circular(16),
+                                         ),
+                                       ),
+                                       SizedBox(width: 10,),
+                                       Container(
+                                         padding: EdgeInsets.all(10),width: 40,height: 40,
+                                         decoration: BoxDecoration(color: Colors.grey,
+                                           shape: BoxShape.circle,
+                                           // borderRadius: BorderRadius.circular(16),
+                                         ),
+                                       ),
+                                     ],
+                                   ),
+                                 ),
+
+                               ],),
                              ));
                              sheetController.closed.then((value) {
                                print("closed");

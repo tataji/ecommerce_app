@@ -1,11 +1,12 @@
-import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/utils/AppUtils.dart';
-import 'file:///C:/Users/91850/Desktop/Deepak/Main%20File/Android%20Files/e_commerce/lib/screens/ProductDetailsScreen.dart';
 import 'package:e_commerce/components/item_card.dart';
 import 'package:e_commerce/models/Product.dart';
 import 'package:e_commerce/provider_model/MyCartViewModel.dart';
+import 'package:e_commerce/screens/ProductDetailsScreen.dart';
+import 'package:e_commerce/utils/AppUtils.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 
 // ignore: must_be_immutable
 class SubCategeoryScreen extends StatefulWidget {
