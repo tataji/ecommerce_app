@@ -141,6 +141,7 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
           ),
         ),
       ),
+
     );
   }
 }

@@ -1,6 +1,7 @@
 import 'package:e_commerce/components/RoundedButton.dart';
 import 'package:e_commerce/components/RoundedInputField.dart';
 import 'package:e_commerce/components/RoundedPasswordInputField.dart';
+import 'package:e_commerce/screens/OtpReadingScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +48,11 @@ class SignUpScreenState extends State<SignUpScreen> {
                 ),
                 RoundedButton(
                   text: "Register",
-                  press: () {},color:appbarGreenColor,
+                  press: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) =>
+                            OtpReadingScreen(),));
+                  },color:appbarGreenColor,
                 ),
               ],
             )),
