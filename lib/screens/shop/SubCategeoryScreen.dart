@@ -35,7 +35,8 @@ class SubCategeoryScreenState extends State<SubCategeoryScreen> {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Expanded(
-                  child: GridView.builder(padding:  EdgeInsets.only(left: defaultPadding,top: defaultPadding,right: defaultPadding),
+                  child: GridView.builder(
+                      padding:  EdgeInsets.only(left: defaultPadding,top: defaultPadding,right: defaultPadding),
                         itemCount: products.length,physics: ScrollPhysics(),shrinkWrap: true,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,

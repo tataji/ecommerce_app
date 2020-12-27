@@ -1,3 +1,4 @@
+import 'package:e_commerce/provider_model/MyCartViewModel.dart';
 import 'package:e_commerce/screens/HomeScreen.dart';
 import 'package:e_commerce/screens/MyCartItemsList.dart';
 import 'package:e_commerce/screens/SplashScreen.dart';
@@ -6,6 +7,7 @@ import 'package:e_commerce/utils/constants.dart';
 /// Flutter code sample for BottomNavigationBar
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 import 'components/NavDrawer.dart';
 
 void main() async{
@@ -70,34 +72,39 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: NavDrawer(),
-      appBar: AppUtils.buildAppBar(context),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
-      ),
-      bottomNavigationBar: BottomNavigationBar(showUnselectedLabels: true,type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Shop',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Explore',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.ac_unit),
-            label: 'Savings',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.save),
-            label: 'Your Items',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: appbarGreenColor,
-        onTap: _onItemTapped,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<MyCartViewModel>(create: (_)=>MyCartViewModel())
+      ],
+      child: Scaffold(
+        drawer: NavDrawer(),
+        appBar: AppUtils.buildAppBar(context),
+        body: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
+        bottomNavigationBar: BottomNavigationBar(showUnselectedLabels: true,type: BottomNavigationBarType.fixed,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Shop',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Explore',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.ac_unit),
+              label: 'Savings',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.save),
+              label: 'Your Items',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: appbarGreenColor,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

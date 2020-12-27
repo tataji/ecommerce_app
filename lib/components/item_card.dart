@@ -42,37 +42,37 @@ class ItemCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Consumer<MyCartViewModel>(
-                          builder: (context, myCartViewModel, child) =>
-                              Container(
-                                  width: 20,
-                                  height: 100,
-                                  child: Column(
-                                  children: [
-                                    CustomDropdown(text: "text",
-                                      count: myCartViewModel.carList.length,
-                                      minusIconPress: (){
-                                        myCartViewModel.addToCart(1);
-                                      },plusIconPress: (){
-                                        myCartViewModel.addToCart(1);
-                                      },
-                                      myCartViewModel: myCartViewModel,),
-                                    Text('${myCartViewModel.carList.length}'),
-                                  ],)),
-
-                        )
-                      ],
-                    ),
-                  ),
-                ),
+                // Align(
+                //   alignment: Alignment.topRight,
+                //   child: Padding(
+                //     padding: const EdgeInsets.all(8.0),
+                //     child: Row(
+                //       crossAxisAlignment: CrossAxisAlignment.end,
+                //       mainAxisAlignment: MainAxisAlignment.end,
+                //       children: [
+                //         Consumer<MyCartViewModel>(
+                //           builder: (context, myCartViewModel, child) =>
+                //               Container(
+                //                   width: 20,
+                //                   height: 100,
+                //                   child: Column(
+                //                   children: [
+                //                     CustomDropdown(text: "text",
+                //                       count: myCartViewModel.carList.length,
+                //                       minusIconPress: (){
+                //                         myCartViewModel.addToCart(1);
+                //                       },plusIconPress: (){
+                //                         myCartViewModel.addToCart(1);
+                //                       },
+                //                       myCartViewModel: myCartViewModel,),
+                //                     Text('${myCartViewModel.carList.length}'),
+                //                   ],)),
+                //
+                //         )
+                //       ],
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
