@@ -85,19 +85,19 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
         bottomNavigationBar: BottomNavigationBar(showUnselectedLabels: true,type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: const Icon(Icons.home),
               label: 'Shop',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
+              icon: const Icon(Icons.search),
               label: 'Explore',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.ac_unit),
+              icon: const Icon(Icons.ac_unit),
               label: 'Savings',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.save),
+              icon:const Icon(Icons.save),
               label: 'Your Items',
             ),
           ],
