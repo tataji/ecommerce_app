@@ -1,5 +1,6 @@
 import 'package:e_commerce/provider_model/MyCartViewModel.dart';
 import 'package:e_commerce/screens/HomeScreen.dart';
+import 'package:e_commerce/screens/LoginScreen.dart';
 import 'package:e_commerce/screens/MyCartItemsList.dart';
 import 'package:e_commerce/screens/SplashScreen.dart';
 import 'package:e_commerce/utils/AppUtils.dart';
@@ -26,12 +27,18 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: appbarGreenColor)),
       title: "",debugShowCheckedModeBanner: false,
       home: SplashScreen(),
+      initialRoute: '/',
+      routes:{
+        LoginScreen.routeName: (context)=> LoginScreen(),
+        BottomMenuHomeScreen.routeName :(context) => BottomMenuHomeScreen(),
+      }
     );
   }
 }
 
 /// This is the stateful widget that the main application instantiates.
 class BottomMenuHomeScreen extends StatefulWidget {
+  static const routeName = '/bottomMenuHomeScreen';
   int index;
   BottomMenuHomeScreen({Key key,this.index}) : super(key: key);
 

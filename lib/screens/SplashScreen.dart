@@ -24,13 +24,19 @@ class SplashScreenState extends State<SplashScreen> {
     Timer(Duration(seconds: 3), ()async{
             int value = await SharedPreferencesWrapper.getLoginDetails();
             if(value==1) {
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-                  builder: (BuildContext context) => BottomMenuHomeScreen()),
-                      (Route<dynamic> route) => false);
+              // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+              //     builder: (BuildContext context) => BottomMenuHomeScreen()),
+              //         (Route<dynamic> route) => false);
+              // Navigator.of(context).pushNamed(BottomMenuHomeScreen.routeName);
+              Navigator.of(context).pushNamedAndRemoveUntil(BottomMenuHomeScreen.routeName, (route) => false);
             }else{
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-                  builder: (BuildContext context) => LoginScreen()),
-                      (Route<dynamic> route) => false);
+              // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+              //     builder: (BuildContext context) => LoginScreen()),
+              //         (Route<dynamic> route) => false);
+
+              // Navigator.of(context).pushNamed(LoginScreen.routeName);
+              Navigator.of(context).pushNamedAndRemoveUntil(LoginScreen.routeName, (route) => false);
+
             }
     });
     return Stack(

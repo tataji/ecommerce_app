@@ -17,4 +17,8 @@ class SharedPreferencesWrapper {
     int value = prefs.get("Login");
     return value;
   }
+  static clearLoginDetails() async {
+    prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('Login', 0);
+  }
 }

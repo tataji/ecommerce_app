@@ -1,7 +1,9 @@
+import 'package:e_commerce/local_storage/SharedPreference.dart';
 import 'package:e_commerce/screens/LoginScreen.dart';
 import 'package:e_commerce/screens/ProfileScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -59,9 +61,11 @@ class NavDrawer extends StatelessWidget {
             title: Text('Logout'),
             onTap: () => {
               //Navigator.of(context).pop()
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-                  builder: (BuildContext context) => LoginScreen()),
-                      (Route<dynamic> route) => false)
+              // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
+              //     builder: (BuildContext context) => LoginScreen()),
+              //         (Route<dynamic> route) => false)
+              SharedPreferencesWrapper.clearLoginDetails(),
+              Navigator.of(context).pushNamedAndRemoveUntil(LoginScreen.routeName, (route) => false)
             },
           ),
         ],

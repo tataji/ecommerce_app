@@ -36,7 +36,7 @@ class AppUtils {
                     // By default our  icon color is white
                   ),
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (BuildContext context) => BottomMenuHomeScreen(
                               index: 3,
                             )));
