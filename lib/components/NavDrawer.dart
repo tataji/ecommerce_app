@@ -39,8 +39,8 @@ class NavDrawer extends StatelessWidget {
           ),
           GestureDetector(onTap: (){
             print("on tap dected");
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen()));
-          },
+            Navigator.pushNamed(context, ProfileScreen.routeName);
+            },
             child: ListTile(
               leading: Icon(Icons.verified_user),
               title: Text('Profile'),
@@ -60,12 +60,8 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(Icons.logout),
             title: Text('Logout'),
             onTap: () => {
-              //Navigator.of(context).pop()
-              // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-              //     builder: (BuildContext context) => LoginScreen()),
-              //         (Route<dynamic> route) => false)
               SharedPreferencesWrapper.clearLoginDetails(),
-              Navigator.of(context).pushNamedAndRemoveUntil(LoginScreen.routeName, (route) => false)
+              Navigator.pushNamedAndRemoveUntil(context,LoginScreen.routeName, (route) => false)
             },
           ),
         ],

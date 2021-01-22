@@ -20,8 +20,7 @@ class AppUtils {
               // By default our  icon color is white
             ),
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => SearchScreen()));
+              Navigator.pushNamed(context,SearchScreen.routeName);
             },
           ),
         ),

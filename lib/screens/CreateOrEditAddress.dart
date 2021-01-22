@@ -3,7 +3,7 @@ import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CreateOrEditAddressScreen extends StatefulWidget {
-  CreateOrEditAddressScreen({Key key}) : super(key: key);
+  static const routeName="/CreateOrEditAddressScren";
 
   @override
   State<StatefulWidget> createState() {

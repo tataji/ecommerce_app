@@ -30,13 +30,7 @@ class SplashScreenState extends State<SplashScreen> {
               // Navigator.of(context).pushNamed(BottomMenuHomeScreen.routeName);
               Navigator.of(context).pushNamedAndRemoveUntil(BottomMenuHomeScreen.routeName, (route) => false);
             }else{
-              // Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-              //     builder: (BuildContext context) => LoginScreen()),
-              //         (Route<dynamic> route) => false);
-
-              // Navigator.of(context).pushNamed(LoginScreen.routeName);
-              Navigator.of(context).pushNamedAndRemoveUntil(LoginScreen.routeName, (route) => false);
-
+              Navigator.pushNamedAndRemoveUntil(context,LoginScreen.routeName, (route) => false);
             }
     });
     return Stack(

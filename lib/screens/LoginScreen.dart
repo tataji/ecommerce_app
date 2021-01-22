@@ -12,7 +12,6 @@ import '../main.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/loginScreen';
-  LoginScreen({Key key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -69,9 +68,7 @@ class LoginScreenState extends State<LoginScreen> {
                       },
                           child: Text("Forgot Password")),
                       GestureDetector(onTap: (){
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) =>
-                            SignUpScreen(),));
+                       Navigator.pushNamed(context, SignUpScreen.routeName);
                       },
                           child: Text("Register here")),
 

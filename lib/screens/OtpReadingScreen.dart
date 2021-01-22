@@ -9,8 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 
 class OtpReadingScreen extends StatefulWidget {
-  OtpReadingScreen({Key key}) : super(key: key);
-
+  static const routeName="/OtpReadingScreen";
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
