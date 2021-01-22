@@ -10,8 +10,7 @@ import 'package:provider/provider.dart';
 
 // ignore: must_be_immutable
 class ProductDetailsScreen extends StatefulWidget {
-  Product product;
-  ProductDetailsScreen({Key key,this.product}) : super(key: key);
+  static const routeName="/productDetailsScreen";
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -24,6 +23,7 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+   Product product= ModalRoute.of(context).settings.arguments;
     return MultiProvider(providers: [
       ChangeNotifierProvider<MyCartViewModel>(create: (_)=>MyCartViewModel())
     ],

@@ -3,8 +3,7 @@ import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({Key key}) : super(key: key);
-
+  static const routeName="/profileScreen";
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -58,7 +57,9 @@ class ProfileScreenState extends State<ProfileScreen> {
                 ListTile(
                   leading: Icon(Icons.location_on),
                   title: Text('Saved Address'),
-                  onTap: () => {Navigator.push(context, MaterialPageRoute(builder: (context)=>SavedAddressScreen()))},
+                  onTap: () => {
+                    Navigator.pushNamed(context, SavedAddressScreen.routeName),
+                  },
                 ),
                 ListTile(
                   leading: Icon(Icons.star_border),

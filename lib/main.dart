@@ -1,19 +1,28 @@
 import 'package:e_commerce/provider_model/MyCartViewModel.dart';
+import 'package:e_commerce/screens/CreateOrEditAddress.dart';
 import 'package:e_commerce/screens/HomeScreen.dart';
+import 'package:e_commerce/screens/LoginScreen.dart';
 import 'package:e_commerce/screens/MyCartItemsList.dart';
+import 'package:e_commerce/screens/OtpReadingScreen.dart';
+import 'package:e_commerce/screens/ProductDetailsScreen.dart';
+import 'package:e_commerce/screens/ProfileScreen.dart';
+import 'package:e_commerce/screens/SavedAddressScreen.dart';
+import 'package:e_commerce/screens/SearchScreen.dart';
+import 'package:e_commerce/screens/SignUpScreen.dart';
 import 'package:e_commerce/screens/SplashScreen.dart';
 import 'package:e_commerce/utils/AppUtils.dart';
 import 'package:e_commerce/utils/constants.dart';
+
 /// Flutter code sample for BottomNavigationBar
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'components/NavDrawer.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations(
-  [DeviceOrientation.portraitUp]);
+      [DeviceOrientation.portraitUp]);
   runApp(MyApp());
 }
 
@@ -22,18 +31,33 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(accentColor: appbarGreenColor,
-        appBarTheme: AppBarTheme(color: appbarGreenColor)),
-      title: "",debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+        theme: ThemeData(accentColor: appbarGreenColor,
+            appBarTheme: AppBarTheme(color: appbarGreenColor)),
+        title: "",
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+        initialRoute: '/',
+        routes: {
+          LoginScreen.routeName: (context) => LoginScreen(),
+          BottomMenuHomeScreen.routeName: (context) => BottomMenuHomeScreen(),
+          SignUpScreen.routeName: (context) => SignUpScreen(),
+          ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
+          ProfileScreen.routeName: (context) => ProfileScreen(),
+          SearchScreen.routeName: (context) => SearchScreen(),
+          CreateOrEditAddressScreen.routeName: (context) => CreateOrEditAddressScreen(),
+          OtpReadingScreen.routeName : (context) => OtpReadingScreen(),
+          SavedAddressScreen.routeName : (context) => SavedAddressScreen(),
+        }
     );
   }
 }
 
 /// This is the stateful widget that the main application instantiates.
 class BottomMenuHomeScreen extends StatefulWidget {
+  static const routeName = '/bottomMenuHomeScreen';
   int index;
-  BottomMenuHomeScreen({Key key,this.index}) : super(key: key);
+
+  BottomMenuHomeScreen({Key key, this.index}) : super(key: key);
 
   @override
   _BottomMenuHomeScreenState createState() => _BottomMenuHomeScreenState();
@@ -42,9 +66,9 @@ class BottomMenuHomeScreen extends StatefulWidget {
 /// This is the private State class that goes with MyStatefulWidget.
 class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
   int _selectedIndex = 0;
-  static  TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold,color: Colors.black);
-  static  List<Widget> _widgetOptions = <Widget>[
+  static TextStyle optionStyle =
+  TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
+  static List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Text(
       'Explore UI',
@@ -56,14 +80,16 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
     ),
     MyCartItemList(),
   ];
-   @override
+
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    if(widget.index!=null){
-        _selectedIndex = widget.index;
+    if (widget.index != null) {
+      _selectedIndex = widget.index;
     }
   }
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -74,7 +100,8 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<MyCartViewModel>(create: (_)=>MyCartViewModel())
+        ChangeNotifierProvider<MyCartViewModel>(
+            create: (_) => MyCartViewModel())
       ],
       child: Scaffold(
         drawer: NavDrawer(),
@@ -82,7 +109,9 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
         body: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
-        bottomNavigationBar: BottomNavigationBar(showUnselectedLabels: true,type: BottomNavigationBarType.fixed,
+        bottomNavigationBar: BottomNavigationBar(
+          showUnselectedLabels: true,
+          type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: const Icon(Icons.home),
@@ -97,7 +126,7 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
               label: 'Savings',
             ),
             BottomNavigationBarItem(
-              icon:const Icon(Icons.save),
+              icon: const Icon(Icons.save),
               label: 'Your Items',
             ),
           ],

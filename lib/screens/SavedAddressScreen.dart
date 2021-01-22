@@ -4,8 +4,8 @@ import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class SavedAddressScreen extends StatefulWidget {
-  SavedAddressScreen({Key key}) : super(key: key);
 
+  static const routeName="/SavedAddressScreen";
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -32,8 +32,8 @@ class SavedAddressScreenState extends State<SavedAddressScreen> {
                 Padding(
                   padding: const EdgeInsets.all(defaultPadding),
                   child: GestureDetector(onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>CreateOrEditAddressScreen()));
-                  },
+                    Navigator.pushNamed(context, CreateOrEditAddressScreen.routeName);
+                    },
                       child: Container(width: SizeConfig.screenWidth/3,height: 50,
                           decoration: BoxDecoration(border: Border.all(color:appbarGreenColor),
                           borderRadius: BorderRadius.circular(16)),

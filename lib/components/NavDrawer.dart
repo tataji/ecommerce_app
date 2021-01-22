@@ -1,7 +1,9 @@
+import 'package:e_commerce/local_storage/SharedPreference.dart';
 import 'package:e_commerce/screens/LoginScreen.dart';
 import 'package:e_commerce/screens/ProfileScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -37,8 +39,8 @@ class NavDrawer extends StatelessWidget {
           ),
           GestureDetector(onTap: (){
             print("on tap dected");
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen()));
-          },
+            Navigator.pushNamed(context, ProfileScreen.routeName);
+            },
             child: ListTile(
               leading: Icon(Icons.verified_user),
               title: Text('Profile'),
@@ -58,10 +60,8 @@ class NavDrawer extends StatelessWidget {
             leading: Icon(Icons.logout),
             title: Text('Logout'),
             onTap: () => {
-              //Navigator.of(context).pop()
-              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(
-                  builder: (BuildContext context) => LoginScreen()),
-                      (Route<dynamic> route) => false)
+              SharedPreferencesWrapper.clearLoginDetails(),
+              Navigator.pushNamedAndRemoveUntil(context,LoginScreen.routeName, (route) => false)
             },
           ),
         ],

@@ -48,13 +48,8 @@ class SubCategeoryScreenState extends State<SubCategeoryScreen> {
                         padding: const EdgeInsets.all(5.0),
                         child: ItemCard(
                           product: products[index],
-                         press: () => Navigator.push(
-                             context,
-                             MaterialPageRoute(
-                               builder: (context) => ProductDetailsScreen(
-                                 product: products[index],
-                               ),
-                             )),
+                         press: () =>
+                          Navigator.pushNamed(context,ProductDetailsScreen.routeName,arguments: products[index])
                         ),
                       )),
                 ),
