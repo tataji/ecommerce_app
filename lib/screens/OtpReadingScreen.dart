@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:e_commerce/components/RoundedButton.dart';
+import 'package:e_commerce/local_storage/SharedPreference.dart';
 import 'package:e_commerce/main.dart';
 import 'package:e_commerce/screens/HomeScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
@@ -63,6 +64,7 @@ class OtpReadingScreenState extends State<OtpReadingScreen> {
                 RoundedButton(
                   text: "Confirm",
                   press: () {
+                    SharedPreferencesWrapper.saveLoginDetails();
                     Navigator.pushAndRemoveUntil(context,
                         MaterialPageRoute(builder: (context) =>
                             BottomMenuHomeScreen()),(Route<dynamic> route) => false);
