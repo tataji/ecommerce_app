@@ -14,11 +14,13 @@ class SharedPreferencesWrapper {
 
   static Future<int> getLoginDetails() async {
     prefs = await SharedPreferences.getInstance();
-    int value = prefs.get("Login");
-    return value;
+    if(prefs.containsKey("Login")) {
+      return prefs.get("Login");
+    }
+    return -1;
   }
   static clearLoginDetails() async {
     prefs = await SharedPreferences.getInstance();
-    await prefs.setInt('Login', 0);
+    await prefs.clear();
   }
 }
