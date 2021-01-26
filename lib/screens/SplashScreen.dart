@@ -23,7 +23,7 @@ class SplashScreenState extends State<SplashScreen> {
     SizeConfig.init(context);
     Timer(Duration(seconds: 3), ()async{
             int value = await SharedPreferencesWrapper.getLoginDetails();
-            if(value==1) {
+            if(value>=0) {
               Navigator.of(context).pushNamedAndRemoveUntil(BottomMenuHomeScreen.routeName, (route) => false);
             }else{
               Navigator.pushNamedAndRemoveUntil(context,LoginScreen.routeName, (route) => false);
