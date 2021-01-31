@@ -30,24 +30,28 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        theme: ThemeData(accentColor: appbarGreenColor,
-            appBarTheme: AppBarTheme(color: appbarGreenColor)),
-        title: "",
-        debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
-        initialRoute: '/',
-        routes: {
-          LoginScreen.routeName: (context) => LoginScreen(),
-          BottomMenuHomeScreen.routeName: (context) => BottomMenuHomeScreen(),
-          SignUpScreen.routeName: (context) => SignUpScreen(),
-          ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
-          ProfileScreen.routeName: (context) => ProfileScreen(),
-          SearchScreen.routeName: (context) => SearchScreen(),
-          CreateOrEditAddressScreen.routeName: (context) => CreateOrEditAddressScreen(),
-          OtpReadingScreen.routeName : (context) => OtpReadingScreen(),
-          SavedAddressScreen.routeName : (context) => SavedAddressScreen(),
-        }
+    return MultiProvider(providers: [
+      ChangeNotifierProvider<MyCartViewModel>(create: (_)=>MyCartViewModel())
+    ],
+      child: MaterialApp(
+          theme: ThemeData(accentColor: appbarGreenColor,
+              appBarTheme: AppBarTheme(color: appbarGreenColor)),
+          title: "",
+          debugShowCheckedModeBanner: false,
+          home: SplashScreen(),
+          initialRoute: '/',
+          routes: {
+            LoginScreen.routeName: (context) => LoginScreen(),
+            BottomMenuHomeScreen.routeName: (context) => BottomMenuHomeScreen(),
+            SignUpScreen.routeName: (context) => SignUpScreen(),
+            ProductDetailsScreen.routeName: (context) => ProductDetailsScreen(),
+            ProfileScreen.routeName: (context) => ProfileScreen(),
+            SearchScreen.routeName: (context) => SearchScreen(),
+            CreateOrEditAddressScreen.routeName: (context) => CreateOrEditAddressScreen(),
+            OtpReadingScreen.routeName : (context) => OtpReadingScreen(),
+            SavedAddressScreen.routeName : (context) => SavedAddressScreen(),
+          }
+      ),
     );
   }
 }
@@ -90,6 +94,7 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
     }
   }
 
+
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -98,12 +103,7 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider<MyCartViewModel>(
-            create: (_) => MyCartViewModel())
-      ],
-      child: Scaffold(
+    return Scaffold(
         drawer: NavDrawer(),
         appBar: AppUtils.buildAppBar(context),
         body: Center(
@@ -134,7 +134,6 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
           selectedItemColor: appbarGreenColor,
           onTap: _onItemTapped,
         ),
-      ),
-    );
+      );
   }
 }

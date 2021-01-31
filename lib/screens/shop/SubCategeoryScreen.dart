@@ -24,10 +24,7 @@ class SubCategeoryScreenState extends State<SubCategeoryScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MultiProvider(providers: [
-      ChangeNotifierProvider<MyCartViewModel>(create: (_)=>MyCartViewModel())
-    ],
-      child: Scaffold(
+    return Scaffold(
         appBar: AppUtils.buildAppBar(context),
         body: Container(
             width: MediaQuery.of(context).size.width ,
@@ -55,7 +52,6 @@ class SubCategeoryScreenState extends State<SubCategeoryScreen> {
                 ),
               ],
             )),
-      ),
-    );
+      );
   }
 }

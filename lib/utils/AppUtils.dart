@@ -57,7 +57,7 @@ class AppUtils {
                     child: Center(
                         child: Consumer<MyCartViewModel>(
                             builder: (context, myCartViewModel, child) => Text(
-                                 '${myCartViewModel.carList.length}',
+                                 '${myCartViewModel.itemCount}',
                                   style: TextStyle(
                                       color: whiteColor,
                                       fontSize: 12,
