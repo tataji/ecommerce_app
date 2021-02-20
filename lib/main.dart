@@ -69,6 +69,7 @@ class BottomMenuHomeScreen extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
+  List<int> stack = new List();
   int _selectedIndex = 0;
   static TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
@@ -92,48 +93,67 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
     if (widget.index != null) {
       _selectedIndex = widget.index;
     }
+    stack.add(_selectedIndex);
   }
 
 
   void _onItemTapped(int index) {
+    stack.add(index);
+
     setState(() {
       _selectedIndex = index;
     });
   }
 
+  Future<bool> _onBack() async {
+    if (_selectedIndex > 0) {
+      stack.removeLast();
+      int pos = stack.length-1;
+      int val = stack[pos];
+      setState((){
+        _selectedIndex = val;
+      });
+
+      return false;
+    }
+
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        drawer: NavDrawer(),
-        appBar: AppUtils.buildAppBar(context),
-        body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          showUnselectedLabels: true,
-          type: BottomNavigationBarType.fixed,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.home),
-              label: 'Shop',
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.search),
-              label: 'Explore',
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.ac_unit),
-              label: 'Savings',
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(Icons.save),
-              label: 'Your Items',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: appbarGreenColor,
-          onTap: _onItemTapped,
-        ),
-      );
+    return WillPopScope(child:   Scaffold(
+      drawer: NavDrawer(),
+      appBar: AppUtils.buildAppBar(context),
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showUnselectedLabels: true,
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.home),
+            label: 'Shop',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.search),
+            label: 'Explore',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.ac_unit),
+            label: 'Savings',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.save),
+            label: 'Your Items',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: appbarGreenColor,
+        onTap: _onItemTapped,
+      ),
+    ),
+    onWillPop:_onBack,);
   }
 }
