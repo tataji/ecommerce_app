@@ -131,7 +131,7 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                        ],
                                      ),
                                    ),
-                                     Consumer<MyCartViewModel>(
+                                     Consumer<  MyCartViewModel>(
                                                  builder: (context, myCartViewModel, child) =>Center(
                                      child: Column(
                                        children: [
