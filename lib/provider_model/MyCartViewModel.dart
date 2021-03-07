@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MyCartViewModel extends ChangeNotifier{
-  List carList = [];
+  List cartList = [];
 
   addToCart(int index){
-    carList.add(index);
+    cartList.add(index);
     notifyListeners();
+  }
+ int get itemCount {
+    return cartList.length;
   }
 }

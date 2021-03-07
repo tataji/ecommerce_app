@@ -24,10 +24,7 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
   Widget build(BuildContext context) {
     // TODO: implement build
    Product product= ModalRoute.of(context).settings.arguments;
-    return MultiProvider(providers: [
-      ChangeNotifierProvider<MyCartViewModel>(create: (_)=>MyCartViewModel())
-    ],
-      child: Scaffold(key: scaffoldKey,
+    return Scaffold(key: scaffoldKey,
         appBar: AppUtils.buildAppBar(context),
         body: GestureDetector(
           // onTap: press,
@@ -159,7 +156,6 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
           ),
         ),
 
-      ),
-    );
+      );
   }
 }
