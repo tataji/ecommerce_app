@@ -3,10 +3,10 @@ import 'package:e_commerce/models/Product.dart';
 import 'package:flutter/material.dart';
 
 class MyCartListItemCard extends StatelessWidget {
-  final ItemsCategeory product;
+  final ItemsCategeory? product;
   //final Function press;
   const MyCartListItemCard({
-    Key key,
+    Key? key,
     this.product,
     //this.press,
   }) : super(key: key);
@@ -26,7 +26,7 @@ class MyCartListItemCard extends StatelessWidget {
                 children: <Widget>[
                   Container(
                       padding: EdgeInsets.all(10),
-                      decoration: BoxDecoration(border: Border.all(color: product.color),
+                      decoration: BoxDecoration(border: Border.all(color: product!.color!),
                         //color: product.color,
                         borderRadius: BorderRadius.circular(16),
                       ),

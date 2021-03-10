@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class SearchScreen extends StatefulWidget {
  static const routeName="/SearchScreen";
-  SearchScreen({Key key}) : super(key: key);
+  SearchScreen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -38,7 +38,7 @@ class SearchScreenState extends State<SearchScreen> {
                       "Search",
                       style: Theme.of(context)
                           .textTheme
-                          .headline5
+                          .headline5!
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                   ),

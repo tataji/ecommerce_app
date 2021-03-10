@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SliversScreen extends StatefulWidget {
-  SliversScreen({Key key}) : super(key: key);
+  SliversScreen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {

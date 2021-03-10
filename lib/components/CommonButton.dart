@@ -2,12 +2,12 @@ import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class CommonButton extends StatelessWidget {
-  final String text;
-  final Function press;
-  final Color color, textColor;
-  final double width;
+  final String? text;
+  final Function? press;
+  final Color? color, textColor;
+  final double? width;
   const CommonButton({
-    Key key,
+    Key? key,
     this.text,
     this.press,
     this.color,
@@ -24,8 +24,8 @@ class CommonButton extends StatelessWidget {
       height: size.height/14,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
-        child:  RaisedButton(color: color,onPressed: press,
-          child: Text(text,style: TextStyle(color: textColor),),),
+        child:  RaisedButton(color: color,onPressed: press as void Function()?,
+          child: Text(text!,style: TextStyle(color: textColor),),),
       ),
     );
   }

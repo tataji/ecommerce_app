@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:e_commerce/components/RoundedButton.dart';
 import 'package:e_commerce/local_storage/SharedPreference.dart';
 import 'package:e_commerce/main.dart';
-import 'package:e_commerce/screens/HomeScreen.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +18,7 @@ class OtpReadingScreen extends StatefulWidget {
 }
 
 class OtpReadingScreenState extends State<OtpReadingScreen> {
-  String _code;
+  late String _code;
 
   @override
   Widget build(BuildContext context) {

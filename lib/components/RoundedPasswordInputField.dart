@@ -1,11 +1,11 @@
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 class RoundedPasswordInputField extends StatelessWidget {
-  final String hintText;
-  final IconData icon;
-  final ValueChanged<String> onChanged;
+  final String? hintText;
+  final IconData? icon;
+  final ValueChanged<String>? onChanged;
   RoundedPasswordInputField({
-    Key key,
+    Key? key,
     this.hintText,
     this.icon,
     this.onChanged,

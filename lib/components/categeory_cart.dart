@@ -3,10 +3,10 @@ import 'package:e_commerce/models/Product.dart';
 import 'package:flutter/material.dart';
 
 class CategeoryCard extends StatelessWidget {
-  final ItemsCategeory product;
-  final Function press;
+  final ItemsCategeory? product;
+  final Function? press;
   const CategeoryCard({
-    Key key,
+    Key? key,
     this.product,
     this.press,
   }) : super(key: key);
@@ -14,18 +14,20 @@ class CategeoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      onTap: press as void Function()?,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
             child: Container(
               padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(border: Border.all(color: product.color),
-                //color: product.color,
+              decoration: BoxDecoration(border: Border.all(color: product!.color!),
+                //color: product.color, 
                 borderRadius: BorderRadius.circular(16),
               ),
-              child:Container(width: 100,height: 100,decoration: BoxDecoration(shape: BoxShape.circle),)
+              child:Container(
+                width: 100,height: 100,
+                decoration: BoxDecoration(shape: BoxShape.circle),)
             ),
           ),
           Container(width: 100,
@@ -34,7 +36,7 @@ class CategeoryCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
                   // products is out demo list
-                  product.title,
+                  product!.title!,
                   style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),
                 ),
               ),

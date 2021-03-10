@@ -35,7 +35,7 @@ class LoginScreenState extends State<LoginScreen> {
                 children: [
                   Text(
                     "Welcome",
-                    style: Theme.of(context).textTheme.headline5.copyWith(fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height:10),
                   RoundedInputField(

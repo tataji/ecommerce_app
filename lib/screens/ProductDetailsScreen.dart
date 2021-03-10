@@ -23,7 +23,7 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-   Product product= ModalRoute.of(context).settings.arguments;
+   Product? product= ModalRoute.of(context)!.settings.arguments as Product?;
     return Scaffold(key: scaffoldKey,
         appBar: AppUtils.buildAppBar(context),
         body: GestureDetector(
@@ -81,7 +81,7 @@ class ProductDetailsScreenState extends State<ProductDetailsScreen> {
                                 borderRadius: BorderRadius.circular(16)),
                             child: Center(child: Text("+Wish list"))),
                              CommonButton(color: appbarGreenColor,press: (){
-                               var sheetController = scaffoldKey.currentState
+                               var sheetController = scaffoldKey.currentState!
                                    .showBottomSheet((context) => Container(width: MediaQuery.of(context).size.width,
                                  height: SizeConfig.screenHeight/4,color:  greyColor,
                                  child: Column(mainAxisAlignment: MainAxisAlignment.start,

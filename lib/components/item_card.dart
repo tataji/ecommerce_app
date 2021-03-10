@@ -6,11 +6,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ItemCard extends StatelessWidget {
-  final Product product;
-  final Function press;
+  final Product? product;
+  final Function? press;
 
   const ItemCard({
-    Key key,
+    Key? key,
     this.product,
     this.press,
   }) : super(key: key);
@@ -18,7 +18,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: press,
+      onTap: press as void Function()?,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -28,7 +28,7 @@ class ItemCard extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: product.color,
+                    color: product!.color,
                     borderRadius: BorderRadius.circular(16),
                   ),
                 ),
@@ -80,12 +80,12 @@ class ItemCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 10),
             child: Text(
               // products is out demo list
-              product.title,
+              product!.title!,
               style: TextStyle(color: Colors.black),
             ),
           ),
           Text(
-            "\$${product.price}",
+            "\$${product!.price}",
             style: TextStyle(fontWeight: FontWeight.bold),
           )
         ],

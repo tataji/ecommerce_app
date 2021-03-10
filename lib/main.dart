@@ -59,9 +59,9 @@ class MyApp extends StatelessWidget {
 /// This is the stateful widget that the main application instantiates.
 class BottomMenuHomeScreen extends StatefulWidget {
   static const routeName = '/bottomMenuHomeScreen';
-  int index;
+  int? index;
 
-  BottomMenuHomeScreen({Key key, this.index}) : super(key: key);
+  BottomMenuHomeScreen({Key? key, this.index}) : super(key: key);
 
   @override
   _BottomMenuHomeScreenState createState() => _BottomMenuHomeScreenState();
@@ -69,8 +69,8 @@ class BottomMenuHomeScreen extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
-  List<int> stack = new List();
-  int _selectedIndex = 0;
+  List<int?> stack = new List();
+  int? _selectedIndex = 0;
   static TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
   static List<Widget> _widgetOptions = <Widget>[
@@ -106,10 +106,10 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
   }
 
   Future<bool> _onBack() async {
-    if (_selectedIndex > 0) {
+    if (_selectedIndex! > 0) {
       stack.removeLast();
       int pos = stack.length-1;
-      int val = stack[pos];
+      int? val = stack[pos];
       setState((){
         _selectedIndex = val;
       });
@@ -126,7 +126,7 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
       drawer: NavDrawer(),
       appBar: AppUtils.buildAppBar(context),
       body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+        child: _widgetOptions.elementAt(_selectedIndex!),
       ),
       bottomNavigationBar: BottomNavigationBar(
         showUnselectedLabels: true,
@@ -149,7 +149,7 @@ class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
             label: 'Your Items',
           ),
         ],
-        currentIndex: _selectedIndex,
+        currentIndex: _selectedIndex!,
         selectedItemColor: appbarGreenColor,
         onTap: _onItemTapped,
       ),

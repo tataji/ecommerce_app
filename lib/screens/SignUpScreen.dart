@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
   static const routeName="/signUpScreen";
-  SignUpScreen({Key key}) : super(key: key);
+  SignUpScreen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -33,7 +33,7 @@ class SignUpScreenState extends State<SignUpScreen> {
               children: [
                 Text(
                   "Welcome",
-                  style: Theme.of(context).textTheme.headline5.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.headline5!.copyWith(fontWeight: FontWeight.bold),
                 ),
                 SizedBox(height:10),
                 RoundedInputField(

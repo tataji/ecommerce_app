@@ -7,10 +7,10 @@ import 'RoundedButton.dart';
 import 'RoundedInputField.dart';
 
 class CustomDialog extends StatefulWidget {
-  final String title, descriptions, text;
-  final Image img;
+  final String? title, descriptions, text;
+  final Image? img;
 
-  const CustomDialog({Key key, this.title, this.descriptions, this.text, this.img}) : super(key: key);
+  const CustomDialog({Key? key, this.title, this.descriptions, this.text, this.img}) : super(key: key);
 
   @override
   _CustomDialogState createState() => _CustomDialogState();

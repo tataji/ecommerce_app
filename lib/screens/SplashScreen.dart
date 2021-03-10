@@ -8,7 +8,7 @@ import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
-  SplashScreen({Key key}) : super(key: key);
+  SplashScreen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -22,7 +22,7 @@ class SplashScreenState extends State<SplashScreen> {
     // TODO: implement build
     SizeConfig.init(context);
     Timer(Duration(seconds: 3), ()async{
-            int value = await SharedPreferencesWrapper.getLoginDetails();
+            int value = await (SharedPreferencesWrapper.getLoginDetails() as FutureOr<int>);
             if(value>=0) {
               Navigator.of(context).pushNamedAndRemoveUntil(BottomMenuHomeScreen.routeName, (route) => false);
             }else{

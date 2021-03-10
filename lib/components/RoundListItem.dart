@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class RoundListItem extends StatelessWidget {
 
   const RoundListItem({
-    Key key,
+    Key? key,
 
   }) : super(key: key);
 

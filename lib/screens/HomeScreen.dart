@@ -6,7 +6,7 @@ import 'package:e_commerce/screens/shop/SubCategeoryScreen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
@@ -30,7 +30,7 @@ class HomeScreenState extends State<HomeScreen> {
                   "Category",
                   style: Theme.of(context)
                       .textTheme
-                      .headline5
+                      .headline5!
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -76,7 +76,7 @@ class HomeScreenState extends State<HomeScreen> {
                   "Trending Items",
                   style: Theme.of(context)
                       .textTheme
-                      .headline5
+                      .headline5!
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
               ),
@@ -103,7 +103,7 @@ class HomeScreenState extends State<HomeScreen> {
                   "New Items",
                   style: Theme.of(context)
                       .textTheme
-                      .headline5
+                      .headline5!
                       .copyWith(fontWeight: FontWeight.bold),
                 ),
               ),

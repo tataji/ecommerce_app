@@ -16,7 +16,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class ProfileScreenState extends State<ProfileScreen> {
-  File _image;
+  File? _image;
   final picker = ImagePicker();
   final List<String> photoChooser = <String>[
     'Take a photo',
@@ -90,7 +90,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                                     : CircleAvatar(
                                         radius: 50,
                                         backgroundImage:
-                                            Image.file(_image).image,
+                                            Image.file(_image!).image,
                                       ),
                               ),
                             ),

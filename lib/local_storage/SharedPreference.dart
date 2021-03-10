@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesWrapper {
-  static SharedPreferences prefs;
+  static late SharedPreferences prefs;
 
   init() async {
     prefs = await SharedPreferences.getInstance();
@@ -12,7 +12,7 @@ class SharedPreferencesWrapper {
     await prefs.setInt('Login', 1);
   }
 
-  static Future<int> getLoginDetails() async {
+  static Future<int?> getLoginDetails() async {
     prefs = await SharedPreferences.getInstance();
     if(prefs.containsKey("Login")) {
       return prefs.get("Login");

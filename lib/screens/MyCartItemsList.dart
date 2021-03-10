@@ -5,7 +5,7 @@ import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class MyCartItemList extends StatefulWidget {
-  MyCartItemList({Key key}) : super(key: key);
+  MyCartItemList({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
