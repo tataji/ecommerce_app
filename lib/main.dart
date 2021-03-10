@@ -69,7 +69,7 @@ class BottomMenuHomeScreen extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _BottomMenuHomeScreenState extends State<BottomMenuHomeScreen> {
-  List<int?> stack = new List();
+  List<int?> stack = [];
   int? _selectedIndex = 0;
   static TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black);
