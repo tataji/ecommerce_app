@@ -15,7 +15,7 @@ class SharedPreferencesWrapper {
   static Future<int?> getLoginDetails() async {
     prefs = await SharedPreferences.getInstance();
     if(prefs.containsKey("Login")) {
-      return prefs.get("Login");
+      return prefs.getInt("Login");
     }
     return -1;
   }

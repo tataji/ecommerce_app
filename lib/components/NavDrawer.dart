@@ -16,7 +16,7 @@ class NavDrawer extends StatelessWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start,
               children: [
               Text(
-                'Dinesh',
+                'User Name',
                 style: TextStyle(color: whiteColor, fontSize: 25),
               ),
               Padding(

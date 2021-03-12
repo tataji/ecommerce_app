@@ -22,11 +22,15 @@ class SplashScreenState extends State<SplashScreen> {
     // TODO: implement build
     SizeConfig.init(context);
     Timer(Duration(seconds: 3), ()async{
-            int value = await (SharedPreferencesWrapper.getLoginDetails() as FutureOr<int>);
-            if(value>=0) {
-              Navigator.of(context).pushNamedAndRemoveUntil(BottomMenuHomeScreen.routeName, (route) => false);
-            }else{
-              Navigator.pushNamedAndRemoveUntil(context,LoginScreen.routeName, (route) => false);
+            int? value = await (SharedPreferencesWrapper.getLoginDetails());
+            if(value!=null) {
+              if (value >= 0) {
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                    BottomMenuHomeScreen.routeName, (route) => false);
+              } else {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, LoginScreen.routeName, (route) => false);
+              }
             }
     });
     return Stack(

@@ -6,7 +6,6 @@ import 'package:e_commerce/main.dart';
 import 'package:e_commerce/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sms_autofill/sms_autofill.dart';
 
 class OtpReadingScreen extends StatefulWidget {
   static const routeName="/OtpReadingScreen";
@@ -33,25 +32,25 @@ class OtpReadingScreenState extends State<OtpReadingScreen> {
               mainAxisAlignment:MainAxisAlignment.center,
               children: [
                 SizedBox(height:10),
-                PinFieldAutoFill(
-                  decoration: UnderlineDecoration(
-                    textStyle: TextStyle(fontSize: 20, color: Colors.black),
-                    colorBuilder: FixedColorBuilder(Colors.black.withOpacity(0.3)),
-                  ),
-                  currentCode: _code,
-                  onCodeSubmitted: (code) {},
-                  onCodeChanged: (code) {
-                    if (code.length == 6) {
-                      FocusScope.of(context).requestFocus(FocusNode());
-                      Timer(Duration(seconds: 2), ()async{
-                        Navigator.pushAndRemoveUntil(context,
-                            MaterialPageRoute(builder: (context) =>
-                                BottomMenuHomeScreen()),(Route<dynamic> route) => false);
-                      });
-
-                    }
-                  },
-                ),
+                // PinFieldAutoFill(
+                //   decoration: UnderlineDecoration(
+                //     textStyle: TextStyle(fontSize: 20, color: Colors.black),
+                //     colorBuilder: FixedColorBuilder(Colors.black.withOpacity(0.3)),
+                //   ),
+                //   currentCode: _code,
+                //   onCodeSubmitted: (code) {},
+                //   onCodeChanged: (code) {
+                //     if (code.length == 6) {
+                //       FocusScope.of(context).requestFocus(FocusNode());
+                //       Timer(Duration(seconds: 2), ()async{
+                //         Navigator.pushAndRemoveUntil(context,
+                //             MaterialPageRoute(builder: (context) =>
+                //                 BottomMenuHomeScreen()),(Route<dynamic> route) => false);
+                //       });
+                //
+                //     }
+                //   },
+                // ),
                 RaisedButton(
                   child: Text('Set code to 123456'),
                   onPressed: () async {

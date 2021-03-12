@@ -135,7 +135,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                           },
                         ),
                         Text(
-                          'Dinesh',
+                          'User name',
                           style: TextStyle(fontSize: 25),
                         ),
                       ],
