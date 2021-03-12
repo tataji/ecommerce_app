@@ -23,7 +23,7 @@ List<Product> products = [
       size: 12,
       description: dummyText,
       image: "assets/images/bag_1.png",
-      color: Color(0xFF3DA986)),
+      color: Color(0xFF3DA9AA)),
   Product(
       id: 2,
       title: "product two",
@@ -31,7 +31,7 @@ List<Product> products = [
       size: 8,
       description: dummyText,
       image: "assets/images/bag_2.png",
-      color: Color(0xFFD8945)),
+      color: Color(0xFFD89FFF)),
   Product(
       id: 3,
       title: "three",
@@ -39,7 +39,7 @@ List<Product> products = [
       size: 10,
       description: dummyText,
       image: "assets/images/bag_3.png",
-      color: Color(0xFF56F567)),
+      color: Color(0xFF56F5FF)),
   Product(
       id: 4,
       title: "four",
@@ -63,7 +63,7 @@ List<Product> products = [
     size: 12,
     description: dummyText,
     image: "assets/images/bag_6.png",
-    color: Color(0xFF45AAA),
+    color: Color(0xFF4588AA),
   ),
   Product(
     id: 7,
